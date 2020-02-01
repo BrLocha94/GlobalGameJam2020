@@ -1,12 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LifeIsAShip", "LifeIsAShip.csproj", "{122F0054-98B9-65AC-1343-A562C330A49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{122F0054-98B9-65AC-1343-A562C330A49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122F0054-98B9-65AC-1343-A562C330A49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122F0054-98B9-65AC-1343-A562C330A49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122F0054-98B9-65AC-1343-A562C330A49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
