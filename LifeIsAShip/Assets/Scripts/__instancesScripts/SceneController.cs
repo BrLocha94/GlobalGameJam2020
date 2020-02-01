@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
+    #region Instance
+
     private static SceneController _instance;
     public static SceneController instance()
     {
@@ -24,5 +27,29 @@ public class SceneController : MonoBehaviour
         }
 
         return _instance;
+    }
+
+    #endregion
+
+    public void LoadOpen(float time)
+    {
+        StartCoroutine(LoadScene("Open", time));
+    }
+
+    public void LoadGame(float time)
+    {
+        StartCoroutine(LoadScene("Game", time));
+    }
+
+    public void LoadCutscene(float time)
+    {
+        StartCoroutine(LoadScene("Cutscene", time));
+    }
+
+    IEnumerator LoadScene(string name, float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        SceneManager.LoadScene(name, LoadSceneMode.Single);
     }
 }
