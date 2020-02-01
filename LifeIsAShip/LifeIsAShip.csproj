@@ -247,6 +247,7 @@
     <Compile Include="Assets\Scripts\__instancesScripts\InstancesFactory.cs" />
     <Compile Include="Assets\Scripts\__instancesScripts\SceneController.cs" />
     <Compile Include="Assets\Scripts\Hammer.cs" />
+    <Compile Include="Assets\Scripts\NodeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
