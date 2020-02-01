@@ -6,8 +6,9 @@ using UnityEngine;
 public class NodeBehaviour : MonoBehaviour
 {
 
+    private int id;
 
-    enum passageDirection
+    public enum passageDirection
     {
         Up,
         Donw,
@@ -16,19 +17,76 @@ public class NodeBehaviour : MonoBehaviour
 
     }
 
-    enum roomState
+    public enum roomState
     {
         New,
         Medium,
-        Rusty,
-        Broken
+        Broken,
+        Condemned
     }
+
+    private roomState roomStateValue;
+
+
+    public NodeBehaviour(int newId)
+    {
+        roomStateValue = roomState.New;
+        id = newId;
+    }
+
+
     void Awake()
     {
 
-        /*int val = Enum.GetNames(typeof(passageDirection)).Length;*/
-        
+        Sprite imageBackgorund = Resources.Load<Sprite>("Room/room_template");
+        gameObject.GetComponent<SpriteRenderer>().sprite = imageBackgorund;
+
+
     }
 
-    
+    void initialBehaviour(string roomType)
+    {
+
+
+    }
+
+
+    public void IncreaseBackgroundValue()
+    {
+        roomState currentBackgroundValue = GetBackgroudValue();
+
+        if ((int)currentBackgroundValue < Enum.GetNames(typeof(roomState)).Length - 1)
+        {
+            roomStateValue++;
+        }
+
+    }
+
+
+    public void DecreaseBackgroundValue()
+    {
+        roomState currentBackgroundValue = GetBackgroudValue();
+
+
+        if ((int)currentBackgroundValue == Enum.GetNames(typeof(roomState)).Length - 1)
+        {
+            Debug.Log("Max ");
+        }
+
+        else  if ((int)currentBackgroundValue > 0)
+        {
+            roomStateValue--;
+        }
+
+    }
+
+    public roomState GetBackgroudValue()
+    {
+        return roomStateValue;
+    }
+
+
+
+
+
 }
