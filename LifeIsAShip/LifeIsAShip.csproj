@@ -245,8 +245,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\__instancesScripts\InstancesFactory.cs" />
+    <Compile Include="Assets\Scripts\__instancesScripts\PublicEnumarators.cs" />
     <Compile Include="Assets\Scripts\__instancesScripts\SceneController.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\Hammer.cs" />
+    <Compile Include="Assets\Scripts\MapManager.cs" />
     <Compile Include="Assets\Scripts\NodeBehaviour.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
   </ItemGroup>

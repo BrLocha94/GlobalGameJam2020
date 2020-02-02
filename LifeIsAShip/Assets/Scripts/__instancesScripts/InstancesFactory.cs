@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class InstancesFactory : MonoBehaviour
 {
-    public GameObject Node;
     void Awake ()
     {
-        Instantiate(Node);
         SceneController.instance();
 	}
 }

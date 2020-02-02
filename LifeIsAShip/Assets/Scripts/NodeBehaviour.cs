@@ -5,43 +5,26 @@ using UnityEngine;
 
 public class NodeBehaviour : MonoBehaviour
 {
-
     private int id;
 
-    public enum passageDirection
-    {
-        Up,
-        Donw,
-        Left,
-        Right
+    private RoomState roomStateValue;
 
-    }
-
-    public enum roomState
-    {
-        New,
-        Medium,
-        Broken,
-        Condemned
-    }
-
-    private roomState roomStateValue;
-
+    [Header("Node Graph Directions")]
+    public NodeBehaviour up;
+    public NodeBehaviour down;
+    public NodeBehaviour left;
+    public NodeBehaviour right;
 
     public NodeBehaviour(int newId)
     {
-        roomStateValue = roomState.New;
+        roomStateValue = RoomState.New;
         id = newId;
     }
 
-
     void Awake()
     {
-
-        Sprite imageBackgorund = Resources.Load<Sprite>("Room/room_template");
-        gameObject.GetComponent<SpriteRenderer>().sprite = imageBackgorund;
-
-
+        //Sprite imageBackgorund = Resources.Load<Sprite>("Room/room_template");
+        //gameObject.GetComponent<SpriteRenderer>().sprite = imageBackgorund;
     }
 
     void initialBehaviour(string roomType)
@@ -50,25 +33,49 @@ public class NodeBehaviour : MonoBehaviour
 
     }
 
+    public bool CheckCanMove(PassageDirection direction)
+    {
+        if (direction == PassageDirection.Up && up != null)
+            return true;
+        else if (direction == PassageDirection.Donw && down != null)
+            return true;
+        else if (direction == PassageDirection.Left && left != null)
+            return true;
+        else if (direction == PassageDirection.Right && right != null)
+            return true;
+
+        return false;
+    }
+
+    public NodeBehaviour GetNextNode(PassageDirection direction)
+    {
+        if (direction == PassageDirection.Up)
+            return up;
+        else if (direction == PassageDirection.Donw)
+            return down;
+        else if (direction == PassageDirection.Left)
+            return left;
+        else if (direction == PassageDirection.Right)
+            return right;
+
+        return null;
+    }
 
     public void IncreaseBackgroundValue()
     {
-        roomState currentBackgroundValue = GetBackgroudValue();
+        RoomState currentBackgroundValue = GetBackgroudValue();
 
-        if ((int)currentBackgroundValue < Enum.GetNames(typeof(roomState)).Length - 1)
+        if ((int)currentBackgroundValue < Enum.GetNames(typeof(RoomState)).Length - 1)
         {
             roomStateValue++;
         }
-
     }
-
 
     public void DecreaseBackgroundValue()
     {
-        roomState currentBackgroundValue = GetBackgroudValue();
+        RoomState currentBackgroundValue = GetBackgroudValue();
 
-
-        if ((int)currentBackgroundValue == Enum.GetNames(typeof(roomState)).Length - 1)
+        if ((int)currentBackgroundValue == Enum.GetNames(typeof(RoomState)).Length - 1)
         {
             Debug.Log("Max ");
         }
@@ -77,16 +84,10 @@ public class NodeBehaviour : MonoBehaviour
         {
             roomStateValue--;
         }
-
     }
 
-    public roomState GetBackgroudValue()
+    public RoomState GetBackgroudValue()
     {
         return roomStateValue;
     }
-
-
-
-
-
 }
