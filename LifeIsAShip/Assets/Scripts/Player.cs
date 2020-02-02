@@ -78,4 +78,13 @@ public class Player : MonoBehaviour
             currentTime += Time.deltaTime;
     }
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        print("AAAAAAAAAAAAA");
+        if (collision.gameObject.tag.Equals("Box"))
+        {
+            print("true");
+            Destroy(collision.gameObject);
+        }
+    }
 }
