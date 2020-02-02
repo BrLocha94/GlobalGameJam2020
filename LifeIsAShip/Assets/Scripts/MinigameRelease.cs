@@ -6,13 +6,16 @@ public class MinigameRelease : Minigame
 {
     bool isOver = false;
     bool checking = false;
+    bool enteredRegion = false;
 
     void Update()
     {
         if (checking == false)
         {
-            if(isOver == true && Input.GetMouseButtonDown(0))
+            if (isOver == true && Input.GetMouseButtonDown(0))
+            {
                 checking = true;
+            }
         }
         else
         {
@@ -27,10 +30,6 @@ public class MinigameRelease : Minigame
                 //Is not over the object
                 checking = false;
             }
-            else
-            {
-                //Fill behaviour
-            }
         }
     }
 
@@ -42,5 +41,15 @@ public class MinigameRelease : Minigame
     private void OnMouseExit()
     {
         isOver = false;
+    }
+
+    public void EnterRegion()
+    {
+        enteredRegion = true;
+    }
+
+    public void ExitRegion()
+    {
+        enteredRegion = false;
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Click
   - Turn
   - Release
+  - Mark
   layers:
   - Default
   - TransparentFX
