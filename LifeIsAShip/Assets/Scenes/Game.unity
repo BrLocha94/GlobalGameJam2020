@@ -437,6 +437,8 @@ MonoBehaviour:
   - {fileID: 1300686835}
   - {fileID: 1132749431}
   - {fileID: 1835289923}
+  - {fileID: 1098345129}
+  - {fileID: 542401826}
 --- !u!4 &552314079
 Transform:
   m_ObjectHideFlags: 0
@@ -766,6 +768,11 @@ Prefab:
       propertyPath: right
       value: 
       objectReference: {fileID: 130025619}
+    - target: {fileID: 114886284409492280, guid: 57c55d1dc63004d40a9a5912945cce9f,
+        type: 2}
+      propertyPath: down
+      value: 
+      objectReference: {fileID: 1132749431}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 57c55d1dc63004d40a9a5912945cce9f, type: 2}
   m_IsPrefabParent: 0
