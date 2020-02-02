@@ -9,68 +9,67 @@ public class CameraMovementBehaviour : MonoBehaviour
 
 	public float MoveSpeed = 5.0f;
 
-	public float frequency = 20.0f;  // Speed of sine movement
-	public float magnitude = 0.5f;   // Size of sine movement
-	private Vector3 axis;
+	public float frequency = 20.0f;  
+	public float magnitude = 0.5f;   
 
-	private Vector3 pos;
+	private Vector3 axis;
 
 	private bool checkChange = true;
 	private int valueToRotateZ = 0;
+	float timeToUp = 0;
+	public float controlTime = 0.5f;
+	public float valueToAdd = 0.2f;
 
 	void Start()
 	{
-		pos = transform.position;
-		axis = transform.up;  // May or may not be the axis you want
+		axis = transform.up;  
 
 	}
 
 	void Update()
 	{
 
+		timeToUp += Time.deltaTime;
+
+
 		Vector3 rotation = new Vector3(0, 0, valueToRotateZ);
 		gameObject.transform.eulerAngles = rotation;
+		float correctedZ = -10;
+		transform.position =  axis * Mathf.Sin(Time.time * frequency) * magnitude;
+		Vector3 correctedFinal = transform.position;
+		correctedFinal.z = correctedZ;
+		transform.position = correctedFinal;
 
-/*		if (pos.x > -2.5)
+		if (timeToUp >= controlTime)
 		{
-			pos += -(transform.right * Time.deltaTime * MoveSpeed);
-
-		}
-		else
-		{
-
-			pos += (transform.right * Time.deltaTime * MoveSpeed);
-		}*/
-		transform.position = pos + axis * Mathf.Sin(Time.time * frequency) * magnitude;
-
-		Debug.Log(transform.position);
-
-		if (checkChange)
-		{
-			valueToRotateZ++;
-
-			if (valueToRotateZ == 5)
+			controlTime+= valueToAdd;
+			if (checkChange)
 			{
-				checkChange = false;
+				valueToRotateZ++;
 
+				if (valueToRotateZ == 2)
+				{
+					checkChange = false;
+
+				}
 			}
-		}
-		else
-		{
-			valueToRotateZ--;
-
-			if (valueToRotateZ == -5)
+			else
 			{
-				checkChange = true;
+				valueToRotateZ--;
+
+				if (valueToRotateZ == -2)
+				{
+					checkChange = true;
+
+				}
 
 			}
 
 		}
-		
-
 
 
 	}
+
 }
 
 	// Use this for initialization
