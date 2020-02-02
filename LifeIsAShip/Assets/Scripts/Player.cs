@@ -8,9 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    float animCooldownTimer = 1f;
-    float currentTime = 1f;
-
     void Start()
     {
         gameObject.transform.position = MapManager.instance.GetCurrentNodePosition();
@@ -23,7 +20,7 @@ public class Player : MonoBehaviour
 
     private void CheckBasicInput()
     {
-        if (currentTime >= animCooldownTimer)
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
             if (Input.GetKeyDown(KeyCode.W) && MapManager.instance.CheckCanMove(PassageDirection.Up))
             {
@@ -31,11 +28,10 @@ public class Player : MonoBehaviour
 
                 iTween.MoveTo(gameObject, iTween.Hash(
                     "position", MapManager.instance.GetCurrentNodePosition(),
-                    "time", 0.95f
+                    "time", 0.4f
                     ));
                 
                 animator.Play("up");
-                currentTime = 0f;
             }
             else if (Input.GetKeyDown(KeyCode.S) && MapManager.instance.CheckCanMove(PassageDirection.Donw))
             {
@@ -43,11 +39,10 @@ public class Player : MonoBehaviour
 
                 iTween.MoveTo(gameObject, iTween.Hash(
                     "position", MapManager.instance.GetCurrentNodePosition(),
-                    "time", 0.95f
+                    "time", 0.4f
                     ));
 
                 animator.Play("down");
-                currentTime = 0f;
             }
             else if (Input.GetKeyDown(KeyCode.A) && MapManager.instance.CheckCanMove(PassageDirection.Left))
             {
@@ -55,11 +50,10 @@ public class Player : MonoBehaviour
 
                 iTween.MoveTo(gameObject, iTween.Hash(
                     "position", MapManager.instance.GetCurrentNodePosition(),
-                    "time", 0.95f
+                    "time", 0.4f
                     ));
 
                 animator.Play("left");
-                currentTime = 0f;
             }
             else if (Input.GetKeyDown(KeyCode.D) && MapManager.instance.CheckCanMove(PassageDirection.Right))
             {
@@ -67,15 +61,12 @@ public class Player : MonoBehaviour
 
                 iTween.MoveTo(gameObject, iTween.Hash(
                     "position", MapManager.instance.GetCurrentNodePosition(),
-                    "time", 0.95f
+                    "time", 0.4f
                     ));
 
                 animator.Play("right");
-                currentTime = 0f;
             }
         }
-        else
-            currentTime += Time.deltaTime;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
