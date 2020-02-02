@@ -130,4 +130,14 @@ public class MapManager : MonoBehaviour
     {
         currentNode.StartMiniGame(spawPosition);
     }
+
+    public void DecriptNode()
+    {
+        currentNode.DecriptNode();
+    }
+
+    public void FixedNode()
+    {
+        currentNode.FixedNode();
+    }
 }

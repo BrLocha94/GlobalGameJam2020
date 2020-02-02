@@ -12,7 +12,6 @@ public enum RoomState
     New,
     Medium,
     Broken,
-    Condemned,
     NULL
 }
 

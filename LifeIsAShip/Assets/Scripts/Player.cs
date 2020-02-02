@@ -28,6 +28,11 @@ public class Player : MonoBehaviour
             CheckBasicInput();
     }
 
+    public void FinishedMinigame()
+    {
+        initiatedMinigame = false;
+    }
+
     private void CheckBasicInput()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))

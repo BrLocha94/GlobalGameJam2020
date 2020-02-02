@@ -18,6 +18,9 @@ public class NodeBehaviour : MonoBehaviour
 
     private NodeConfig config;
 
+    bool emergency = false;
+    float timer = 0f;
+
     public NodeBehaviour(int newId)
     {
         roomStateValue = RoomState.New;
@@ -34,7 +37,7 @@ public class NodeBehaviour : MonoBehaviour
     {
         if (config != null)
         {
-            if (config.miniGame != null)
+            if (config.miniGame != null && roomStateValue == RoomState.Medium)
                 return true;
         }
 
@@ -43,15 +46,45 @@ public class NodeBehaviour : MonoBehaviour
 
     public void StartMiniGame(Transform spawPosition)
     {
-        print("AQUI");
         GameObject newMiniGame = Instantiate(config.miniGame.gameObject);
         newMiniGame.GetComponent<Minigame>().OnInitiatedGame(spawPosition);
     }
 
-    void Awake()
+    public void DecriptNode()
     {
-        //Sprite imageBackgorund = Resources.Load<Sprite>("Room/room_template");
-        //gameObject.GetComponent<SpriteRenderer>().sprite = imageBackgorund;
+        if (roomStateValue != RoomState.Broken)
+            gameObject.GetComponent<Animator>().SetTrigger("lost");
+    }
+
+    void Update()
+    {
+        if (config != null)
+        {
+            if (config.miniGame != null && emergency == false)
+            {
+                timer += Time.deltaTime;
+                if (timer > 5)
+                    SortEmergency();
+            }
+        }
+    }
+
+    public void SortEmergency()
+    {
+        int random = UnityEngine.Random.Range(0, 20);
+        if (random == 0)
+        {
+            emergency = true;
+            roomStateValue = RoomState.Medium;
+            gameObject.GetComponent<Animator>().Play("state-01");
+        }
+    }
+
+    public void FixedNode()
+    {
+        timer = 0f;
+        roomStateValue = RoomState.New;
+        gameObject.GetComponent<Animator>().Play("stage-00");
     }
 
     void initialBehaviour(string roomType)

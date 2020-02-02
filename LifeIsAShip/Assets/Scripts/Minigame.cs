@@ -16,13 +16,16 @@ public class Minigame : MonoBehaviour
     {
         if(result == true)
         {
-            //Add score 
+            //Add score
+            MapManager.instance.FixedNode();
         }
         else
         {
             //Depriciate Node
+            MapManager.instance.DecriptNode();
         }
 
         //Liberate player to new actions
+        Player.instance.FinishedMinigame();
     }
 }
