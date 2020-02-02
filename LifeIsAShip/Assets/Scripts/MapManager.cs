@@ -8,8 +8,14 @@ public class MapManager : MonoBehaviour
     public int height;
     public int widht;
 
+    [Header("All the nodes in the scene")]
     [SerializeField]
     private NodeBehaviour[] referenceNodes;
+
+    [Header("Holds all the possible configs to sort to a node")]
+    [SerializeField]
+    private NodeConfig[] configNodes;
+
     private static NodeBehaviour currentNode;
 
     public static MapManager instance;
@@ -45,5 +51,10 @@ public class MapManager : MonoBehaviour
     public void MovimentCurrentNode(PassageDirection direction)
     {
         currentNode = currentNode.GetNextNode(direction);
+    }
+
+    public void SortScenarios()
+    {
+
     }
 }

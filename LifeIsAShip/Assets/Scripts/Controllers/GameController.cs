@@ -6,7 +6,6 @@ public class GameController : MonoBehaviour
 {
 	void Start ()
     {
-		
+        MapManager.instance.SortScenarios();
 	}
-	
 }

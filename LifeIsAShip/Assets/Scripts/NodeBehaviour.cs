@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Animator))]
 public class NodeBehaviour : MonoBehaviour
 {
     private int id;
@@ -15,10 +16,18 @@ public class NodeBehaviour : MonoBehaviour
     public NodeBehaviour left;
     public NodeBehaviour right;
 
+    private NodeConfig config;
+
     public NodeBehaviour(int newId)
     {
         roomStateValue = RoomState.New;
         id = newId;
+    }
+
+    public void SetConfig(NodeConfig newConfig)
+    {
+        this.config = newConfig;
+        //gameObject.GetComponent<Animator>().runtimeAnimatorController
     }
 
     void Awake()
