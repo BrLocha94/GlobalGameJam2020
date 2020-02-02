@@ -16,6 +16,9 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private NodeConfig[] configNodes;
 
+    [Header("Minigame Spaw position")]
+    public Transform spawPosition;
+
     private static NodeBehaviour currentNode;
 
     public static MapManager instance;
@@ -61,5 +64,15 @@ public class MapManager : MonoBehaviour
 
             referenceNodes[i].SetConfig(configNodes[random]);
         }
+    }
+
+    public bool CanInitiateMinigame()
+    {
+        return currentNode.CanInitiateMinigame();
+    }
+
+    public void StartMiniGame()
+    {
+        currentNode.StartMiniGame(spawPosition);
     }
 }

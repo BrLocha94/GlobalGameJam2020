@@ -256,6 +256,9 @@
     <Compile Include="Assets\Scripts\MapManager.cs" />
     <Compile Include="Assets\Scripts\MessageHandler.cs" />
     <Compile Include="Assets\Scripts\Minigame.cs" />
+    <Compile Include="Assets\Scripts\MinigameClick.cs" />
+    <Compile Include="Assets\Scripts\MinigameRelease.cs" />
+    <Compile Include="Assets\Scripts\MinigameTurn.cs" />
     <Compile Include="Assets\Scripts\NodeBehaviour.cs" />
     <Compile Include="Assets\Scripts\NodeConfig.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />

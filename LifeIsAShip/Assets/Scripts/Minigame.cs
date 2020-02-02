@@ -2,15 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Minigame : MonoBehaviour {
+public class Minigame : MonoBehaviour
+{
+    public MinigameType minigameType;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public void OnInitiatedGame(Transform spawPosition)
+    {
+        //Set position
+        gameObject.transform.position = spawPosition.position;
+    }
+
+    public void OnFinishedGame(bool result)
+    {
+        if(result == true)
+        {
+            //Add score 
+        }
+        else
+        {
+            //Depriciate Node
+        }
+
+        //Liberate player to new actions
+    }
 }

@@ -30,6 +30,24 @@ public class NodeBehaviour : MonoBehaviour
         gameObject.GetComponent<Animator>().runtimeAnimatorController = config.animatorController;
     }
 
+    public bool CanInitiateMinigame()
+    {
+        if (config != null)
+        {
+            if (config.miniGame != null)
+                return true;
+        }
+
+        return false;
+    }
+
+    public void StartMiniGame(Transform spawPosition)
+    {
+        print("AQUI");
+        GameObject newMiniGame = Instantiate(config.miniGame.gameObject);
+        newMiniGame.GetComponent<Minigame>().OnInitiatedGame(spawPosition);
+    }
+
     void Awake()
     {
         //Sprite imageBackgorund = Resources.Load<Sprite>("Room/room_template");
