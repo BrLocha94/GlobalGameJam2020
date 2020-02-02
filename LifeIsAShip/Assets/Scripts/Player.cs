@@ -8,15 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
-    bool initiatedMinigame = false;
-
-    public static Player instance;
-    void Awake()
-    {
-        if (instance == null)
-            instance = this;
-    }
-
     void Start()
     {
         gameObject.transform.position = MapManager.instance.GetCurrentNodePosition();
@@ -24,23 +15,14 @@ public class Player : MonoBehaviour
 
     void Update ()
     {
-        if(initiatedMinigame == false)
-            CheckBasicInput();
+        CheckBasicInput();
     }
 
     private void CheckBasicInput()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("idle"))
         {
-            if (Input.GetKeyDown(KeyCode.Space) && MapManager.instance.CanInitiateMinigame())
-            {
-                initiatedMinigame = true;
-
-                //Play MiniGame animation
-
-                MapManager.instance.StartMiniGame();
-            }
-            else if (Input.GetKeyDown(KeyCode.W) && MapManager.instance.CheckCanMove(PassageDirection.Up))
+            if (Input.GetKeyDown(KeyCode.W) && MapManager.instance.CheckCanMove(PassageDirection.Up))
             {
                 MapManager.instance.MovimentCurrentNode(PassageDirection.Up);
 
