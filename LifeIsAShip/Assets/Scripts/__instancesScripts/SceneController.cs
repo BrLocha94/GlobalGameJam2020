@@ -33,17 +33,20 @@ public class SceneController : MonoBehaviour
 
     public void LoadOpen(float time)
     {
-        StartCoroutine(LoadScene("Open", time));
+        SceneManager.LoadScene("Open", LoadSceneMode.Single);
+        //StartCoroutine(LoadScene("Open", time));
     }
 
     public void LoadGame(float time)
     {
-        StartCoroutine(LoadScene("Game", time));
+        SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        //StartCoroutine(LoadScene("Game", time));
     }
 
     public void LoadCutscene(float time)
     {
-        StartCoroutine(LoadScene("Cutscene", time));
+        SceneManager.LoadScene("Cutscene", LoadSceneMode.Single);
+        //StartCoroutine(LoadScene("Cutscene", time));
     }
 
     IEnumerator LoadScene(string name, float time)

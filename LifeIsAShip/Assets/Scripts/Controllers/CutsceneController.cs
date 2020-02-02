@@ -8,6 +8,8 @@ public class CutsceneController : MonoBehaviour
     public Animator rickGuyAnimator;
     public Animator poorGuyAnimator;
 
+    [Header("UI Objects")]
+    public GameObject dialogBox;
 
     bool used = false;
 
@@ -22,6 +24,11 @@ public class CutsceneController : MonoBehaviour
 
     public void AdvanceAnimation()
     {
+        iTween.ScaleTo(dialogBox, iTween.Hash(
+            "scale", new Vector3(0f, 0f, 0f),
+            "time", 0.2f,
+            "easetype", iTween.EaseType.easeOutElastic));
+
         rickGuyAnimator.SetTrigger("go");
         used = true;
     }

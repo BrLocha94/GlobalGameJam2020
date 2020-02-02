@@ -155,6 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rickGuyAnimator: {fileID: 916890164}
   poorGuyAnimator: {fileID: 928857967}
+  dialogBox: {fileID: 1921265956}
 --- !u!1 &329613601
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +421,7 @@ GameObject:
   - component: {fileID: 539760581}
   - component: {fileID: 539760580}
   m_Layer: 5
-  m_Name: Image
+  m_Name: OptionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +435,7 @@ RectTransform:
   m_GameObject: {fileID: 539760578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children:
   - {fileID: 1359411941}
   - {fileID: 2028566402}
@@ -556,7 +557,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 574258221}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114161088441099048, guid: b3c9376be15b5064f84e013b2da1dd07,
+          type: 2}
+        m_MethodName: LoadOpen
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &574258221
@@ -845,6 +858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hammer: {fileID: 114630660312735908, guid: a0596fd570da93a45add80ad55db7101, type: 2}
   position: {fileID: 418125242}
+  optionBox: {fileID: 539760578}
 --- !u!1 &928857966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1709,7 +1723,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2028566404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114161088441099048, guid: b3c9376be15b5064f84e013b2da1dd07,
+          type: 2}
+        m_MethodName: LoadGame
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0.2
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2028566404
