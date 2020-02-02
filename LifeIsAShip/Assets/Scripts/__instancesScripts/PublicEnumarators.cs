@@ -15,10 +15,3 @@ public enum RoomState
     Condemned,
     NULL
 }
-
-public enum MinigameType
-{
-    Click,
-    Release,
-    Turn
-}

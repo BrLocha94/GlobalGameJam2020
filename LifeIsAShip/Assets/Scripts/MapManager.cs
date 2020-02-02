@@ -8,17 +8,8 @@ public class MapManager : MonoBehaviour
     public int height;
     public int widht;
 
-    [Header("All the nodes in the scene")]
     [SerializeField]
     private NodeBehaviour[] referenceNodes;
-
-    [Header("Holds all the possible configs to sort to a node")]
-    [SerializeField]
-    private NodeConfig[] configNodes;
-
-    [Header("Minigame Spaw position")]
-    public Transform spawPosition;
-
     private static NodeBehaviour currentNode;
 
     public static MapManager instance;
@@ -54,25 +45,5 @@ public class MapManager : MonoBehaviour
     public void MovimentCurrentNode(PassageDirection direction)
     {
         currentNode = currentNode.GetNextNode(direction);
-    }
-
-    public void SortScenarios()
-    {
-        for(int i = 0; i < (referenceNodes.Length - 2); i++)
-        {
-            int random = Random.Range(0, configNodes.Length);
-
-            referenceNodes[i].SetConfig(configNodes[random]);
-        }
-    }
-
-    public bool CanInitiateMinigame()
-    {
-        return currentNode.CanInitiateMinigame();
-    }
-
-    public void StartMiniGame()
-    {
-        currentNode.StartMiniGame(spawPosition);
     }
 }
