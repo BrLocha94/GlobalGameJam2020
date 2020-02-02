@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\Box.cs" />
      <Compile Include="Assets\Scripts\CameraMovementBehaviour.cs" />
      <Compile Include="Assets\Scripts\Controllers\CutsceneController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\DoorController.cs" />
      <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
      <Compile Include="Assets\Scripts\Controllers\OpenSideController.cs" />
      <Compile Include="Assets\Scripts\Hammer.cs" />
