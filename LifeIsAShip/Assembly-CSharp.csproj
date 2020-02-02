@@ -54,12 +54,17 @@
      <Compile Include="Assets\Scripts\__instancesScripts\InstancesFactory.cs" />
      <Compile Include="Assets\Scripts\__instancesScripts\PublicEnumarators.cs" />
      <Compile Include="Assets\Scripts\__instancesScripts\SceneController.cs" />
+     <Compile Include="Assets\Scripts\Box.cs" />
      <Compile Include="Assets\Scripts\CameraMovementBehaviour.cs" />
-     <Compile Include="Assets\Scripts\GameController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\CutsceneController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
+     <Compile Include="Assets\Scripts\Controllers\OpenSideController.cs" />
      <Compile Include="Assets\Scripts\Hammer.cs" />
      <Compile Include="Assets\Scripts\MapManager.cs" />
+     <Compile Include="Assets\Scripts\MessageHandler.cs" />
      <Compile Include="Assets\Scripts\NodeBehaviour.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <None Include="Assets\Resources\OpenSides.txt" />
  <Reference Include="UnityEngine.CoreModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2017.4.32f1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
  </Reference>
