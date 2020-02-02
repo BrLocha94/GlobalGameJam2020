@@ -498,6 +498,7 @@ MonoBehaviour:
   - {fileID: 1835289923}
   - {fileID: 1098345129}
   - {fileID: 542401826}
+  maxEqualNodes: 2
   configNodes:
   - {fileID: 114423632041120916, guid: 21d27717d4730494499f2cfea584fd11, type: 2}
   - {fileID: 114206429011216992, guid: 9737016fea096a247a73a51196c7454b, type: 2}

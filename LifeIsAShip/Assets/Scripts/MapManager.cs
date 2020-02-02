@@ -12,6 +12,11 @@ public class MapManager : MonoBehaviour
     [SerializeField]
     private NodeBehaviour[] referenceNodes;
 
+
+    [Header("Max Of the same node")]
+    [SerializeField]
+    private int maxEqualNodes;
+
     [Header("Holds all the possible configs to sort to a node")]
     [SerializeField]
     private NodeConfig[] configNodes;
@@ -26,9 +31,14 @@ public class MapManager : MonoBehaviour
     void Awake()
     {
         if (instance == null)
+        {
             instance = gameObject.GetComponent<MapManager>();
-
-        currentNode = referenceNodes[6];    
+        }
+        if (maxEqualNodes == 0)
+        {
+            maxEqualNodes = 1;
+        }
+        currentNode = referenceNodes[6];
     }
 
     public void ModifyCurrentNode(NodeBehaviour node)
@@ -58,11 +68,56 @@ public class MapManager : MonoBehaviour
 
     public void SortScenarios()
     {
-        for(int i = 0; i < (referenceNodes.Length - 2); i++)
-        {
-            int random = Random.Range(0, configNodes.Length);
+        List<int> nodesList = new List<int>();
 
-            referenceNodes[i].SetConfig(configNodes[random]);
+
+        for (int i = 0; i < (referenceNodes.Length - 2); i++)
+        {
+            int qtdOfNodes = 0;
+            int randomNodeValue = Random.Range(0, configNodes.Length);
+            if (nodesList.Contains(randomNodeValue))
+            {
+                for (int k = 0; k < nodesList.Count; k++)
+                {
+                    if (nodesList[k] == randomNodeValue)
+                    {
+                        Debug.Log(nodesList[k] + " , " + randomNodeValue + " Values equal ");
+                        qtdOfNodes++;
+
+
+                    }
+                }
+
+                /*                Debug.Log(qtdOfNodes);*/
+
+                if (qtdOfNodes < maxEqualNodes)
+                {
+
+                    Debug.Log("Adding " + randomNodeValue);
+                    nodesList.Add(randomNodeValue);
+                }
+            }
+
+            else
+            {
+
+                Debug.Log("Adding " + randomNodeValue);
+                nodesList.Add(randomNodeValue);
+            }
+        }
+        Debug.Log(nodesList.Count + "NUMber of added");
+
+        for (int i = 0; i < nodesList.Count; i++)
+
+        {
+            referenceNodes[i].SetConfig(configNodes[nodesList[i]]);
+
+        }
+
+        if (nodesList.Count < (referenceNodes.Length - 2))
+        {
+            for(int i = nodesList.Count; i < ((referenceNodes.Length - 2) - nodesList.Count);  i++)
+            referenceNodes[i].SetConfig(configNodes[0]);
         }
     }
 

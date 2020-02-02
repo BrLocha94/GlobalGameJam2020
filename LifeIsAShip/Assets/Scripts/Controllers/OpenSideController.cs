@@ -45,7 +45,6 @@ public class OpenSideController : MonoBehaviour {
 
 			if (!string.Equals(levelSelectedOpenValuesList[i].ToString(), "#"))
 			{
-				Debug.Log(levelSelectedOpenValuesList[i]);
 
 				openCheckValuesList.Add(int.Parse(levelSelectedOpenValuesList[i].ToString()));
 			}
