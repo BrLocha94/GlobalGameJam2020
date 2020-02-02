@@ -63,7 +63,7 @@ public class NodeBehaviour : MonoBehaviour
             if (config.miniGame != null && emergency == false)
             {
                 timer += Time.deltaTime;
-                if (timer > 5)
+                if (timer > 10)
                     SortEmergency();
             }
         }
@@ -84,7 +84,7 @@ public class NodeBehaviour : MonoBehaviour
     {
         timer = 0f;
         roomStateValue = RoomState.New;
-        gameObject.GetComponent<Animator>().Play("stage-00");
+        gameObject.GetComponent<Animator>().Play("state-00");
     }
 
     void initialBehaviour(string roomType)

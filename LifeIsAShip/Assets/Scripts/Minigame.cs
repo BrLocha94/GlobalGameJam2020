@@ -27,5 +27,6 @@ public class Minigame : MonoBehaviour
 
         //Liberate player to new actions
         Player.instance.FinishedMinigame();
+        Destroy(gameObject);
     }
 }
