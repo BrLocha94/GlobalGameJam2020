@@ -624,12 +624,12 @@ Prefab:
         type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 0fcf86309a1c90346b8f1a292d2ce682, type: 2}
+      objectReference: {fileID: 9100000, guid: 3ae560ab3a094ac41b52ce7f1acab90e, type: 2}
     - target: {fileID: 212696121928606014, guid: 57c55d1dc63004d40a9a5912945cce9f,
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 91675d2dc3aa82f4ba3d0df1a2aaf93f,
+      objectReference: {fileID: 21300000, guid: 5f2d4680b1e24d34dba67d4258f70134,
         type: 3}
     - target: {fileID: 212696121928606014, guid: 57c55d1dc63004d40a9a5912945cce9f,
         type: 2}

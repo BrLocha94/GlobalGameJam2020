@@ -27,7 +27,7 @@ public class NodeBehaviour : MonoBehaviour
     public void SetConfig(NodeConfig newConfig)
     {
         this.config = newConfig;
-        //gameObject.GetComponent<Animator>().runtimeAnimatorController
+        gameObject.GetComponent<Animator>().runtimeAnimatorController = config.animatorController;
     }
 
     void Awake()

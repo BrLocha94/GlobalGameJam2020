@@ -55,6 +55,11 @@ public class MapManager : MonoBehaviour
 
     public void SortScenarios()
     {
+        for(int i = 0; i < (referenceNodes.Length - 2); i++)
+        {
+            int random = Random.Range(0, configNodes.Length);
 
+            referenceNodes[i].SetConfig(configNodes[random]);
+        }
     }
 }
