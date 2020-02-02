@@ -2,63 +2,64 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenSideController : MonoBehaviour {
+public class OpenSideController : MonoBehaviour
+{
 
-	private List<int> openValuesFinalList;
-	private List<string> sideOpenList;
+    private List<string> sideOpenList;
 
-	void Start ()
-	{
-		TextAsset sideOpenFile = Resources.Load<TextAsset>("OpenSides");
-		string sideOpenString = sideOpenFile.text;
-		sideOpenList = sideOpensLoader(sideOpenString);
-		openValuesFinalList = OpenedValues(sideOpenList[1]);
-	}
+    void Awake()
+    {
+        TextAsset sideOpenFile = Resources.Load<TextAsset>("OpenSides");
+        string sideOpenString = sideOpenFile.text;
+        sideOpenList = sideOpensLoader(sideOpenString);
 
-	private List<string> sideOpensLoader(string sideOpenStringParam)
-	{
-		List<string> sideLevelsList = new List<string>();
-		string tempString = string.Empty;
-		for (int i = 0; i < sideOpenStringParam.Length; i++)
-		{
-			if (!string.Equals(sideOpenStringParam[i].ToString(), "@"))
-			{
+    }
 
-				tempString += sideOpenStringParam[i];
+    private List<string> sideOpensLoader(string sideOpenStringParam)
+    {
+        List<string> sideLevelsList = new List<string>();
+        string tempString = string.Empty;
+        for (int i = 0; i < sideOpenStringParam.Length; i++)
+        {
+            if (!string.Equals(sideOpenStringParam[i].ToString(), "@"))
+            {
 
-			}
-			else 
-			{
-				sideLevelsList.Add(tempString);
-				tempString = string.Empty;
-			}
-		}
+                tempString += sideOpenStringParam[i];
 
-		return sideLevelsList;
-	}
+            }
+            else
+            {
+                sideLevelsList.Add(tempString);
+                tempString = string.Empty;
+            }
+        }
 
-	private List<int> OpenedValues(string levelSelectedOpenValuesList)
-	{
-		List<int> openCheckValuesList = new List<int>();
-		for (int i = 0; i < levelSelectedOpenValuesList.Length; i++)
-		{
+        return sideLevelsList;
+    }
 
-			if (!string.Equals(levelSelectedOpenValuesList[i].ToString(), "#"))
-			{
+    private List<int> OpenedValues(string levelSelectedOpenValuesList)
+    {
+        List<int> openCheckValuesList = new List<int>();
+        for (int i = 0; i < levelSelectedOpenValuesList.Length; i++)
+        {
 
-				openCheckValuesList.Add(int.Parse(levelSelectedOpenValuesList[i].ToString()));
-			}
-		}
-		return openCheckValuesList;
-	}
+            if (!string.Equals(levelSelectedOpenValuesList[i].ToString(), "#"))
+            {
 
-	public List<int> GetListOfSideOpen()
-	{
-		return openValuesFinalList;
-	}
 
-	public int GetQtdOfLevels()
-	{
-		return sideOpenList.Count;
-	}
+                openCheckValuesList.Add(int.Parse(levelSelectedOpenValuesList[i].ToString()));
+            }
+        }
+        return openCheckValuesList;
+    }
+
+    public List<int> GetListOfSideOpen(int levelNumber)
+    {
+        return OpenedValues(sideOpenList[levelNumber]); ;
+    }
+
+    public int GetQtdOfLevels()
+    {
+        return sideOpenList.Count;
+    }
 }

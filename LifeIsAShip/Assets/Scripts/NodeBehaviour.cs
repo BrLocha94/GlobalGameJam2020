@@ -140,7 +140,7 @@ public class NodeBehaviour : MonoBehaviour
             Debug.Log("Max ");
         }
 
-        else  if ((int)currentBackgroundValue > 0)
+        else if ((int)currentBackgroundValue > 0)
         {
             roomStateValue--;
         }
@@ -150,4 +150,29 @@ public class NodeBehaviour : MonoBehaviour
     {
         return roomStateValue;
     }
+
+
+    public void SetReferencenull(string SideDoor)
+    {
+        SideDoor = SideDoor.ToLower();
+
+        if (string.Equals(SideDoor, "up"))
+        {
+            up = null;
+        }
+        else if (string.Equals(SideDoor, "down"))
+        {
+            down = null;
+        }
+        else if (string.Equals(SideDoor, "left"))
+        {
+            left = null;
+        }
+        else if (string.Equals(SideDoor, "right"))
+        {
+            right = null;
+        }
+
+    }
+
 }
