@@ -81,37 +81,27 @@ public class MapManager : MonoBehaviour
                 {
                     if (nodesList[k] == randomNodeValue)
                     {
-                        Debug.Log(nodesList[k] + " , " + randomNodeValue + " Values equal ");
                         qtdOfNodes++;
-
-
                     }
                 }
-
-                /*                Debug.Log(qtdOfNodes);*/
 
                 if (qtdOfNodes < maxEqualNodes)
                 {
 
-                    Debug.Log("Adding " + randomNodeValue);
                     nodesList.Add(randomNodeValue);
                 }
             }
 
             else
             {
-
-                Debug.Log("Adding " + randomNodeValue);
                 nodesList.Add(randomNodeValue);
             }
         }
-        Debug.Log(nodesList.Count + "NUMber of added");
 
         for (int i = 0; i < nodesList.Count; i++)
 
         {
             referenceNodes[i].SetConfig(configNodes[nodesList[i]]);
-
         }
 
         if (nodesList.Count < (referenceNodes.Length - 2))
