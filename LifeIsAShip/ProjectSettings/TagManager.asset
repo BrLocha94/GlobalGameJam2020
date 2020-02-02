@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Box
+  - Click
+  - Turn
+  - Release
   layers:
   - Default
   - TransparentFX
