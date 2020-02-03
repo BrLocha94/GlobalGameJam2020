@@ -53,7 +53,10 @@ public class NodeBehaviour : MonoBehaviour
     public void DecriptNode()
     {
         if (roomStateValue != RoomState.Broken)
+        {
             gameObject.GetComponent<Animator>().SetTrigger("lost");
+            SoundController.instance().PlayClipSfx("explosion");
+        }
     }
 
     void Update()

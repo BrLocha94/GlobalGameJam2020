@@ -247,6 +247,7 @@
     <Compile Include="Assets\Scripts\__instancesScripts\InstancesFactory.cs" />
     <Compile Include="Assets\Scripts\__instancesScripts\PublicEnumarators.cs" />
     <Compile Include="Assets\Scripts\__instancesScripts\SceneController.cs" />
+    <Compile Include="Assets\Scripts\__instancesScripts\SoundController.cs" />
     <Compile Include="Assets\Scripts\Box.cs" />
     <Compile Include="Assets\Scripts\CameraMovementBehaviour.cs" />
     <Compile Include="Assets\Scripts\Controllers\CutsceneController.cs" />

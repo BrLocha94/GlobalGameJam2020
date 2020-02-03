@@ -41,9 +41,9 @@ public class Player : MonoBehaviour
             {
                 initiatedMinigame = true;
 
-                //Play MiniGame animation
-
                 MapManager.instance.StartMiniGame();
+
+                SoundController.instance().PlayClipSfx("minigame-enter");
             }
             else if (Input.GetKeyDown(KeyCode.W) && MapManager.instance.CheckCanMove(PassageDirection.Up))
             {
@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
                     ));
                 
                 animator.Play("up");
+
+                SoundController.instance().PlayClipSfx("jump");
             }
             else if (Input.GetKeyDown(KeyCode.S) && MapManager.instance.CheckCanMove(PassageDirection.Donw))
             {
@@ -66,6 +68,8 @@ public class Player : MonoBehaviour
                     ));
 
                 animator.Play("down");
+
+                SoundController.instance().PlayClipSfx("jump");
             }
             else if (Input.GetKeyDown(KeyCode.A) && MapManager.instance.CheckCanMove(PassageDirection.Left))
             {
@@ -77,6 +81,8 @@ public class Player : MonoBehaviour
                     ));
 
                 animator.Play("left");
+
+                SoundController.instance().PlayClipSfx("jump");
             }
             else if (Input.GetKeyDown(KeyCode.D) && MapManager.instance.CheckCanMove(PassageDirection.Right))
             {
@@ -88,6 +94,8 @@ public class Player : MonoBehaviour
                     ));
 
                 animator.Play("right");
+
+                SoundController.instance().PlayClipSfx("jump");
             }
         }
     }
@@ -98,6 +106,8 @@ public class Player : MonoBehaviour
         {
             GameController.instance.GetToolbox();
             Destroy(collision.gameObject);
+
+            SoundController.instance().PlayClipSfx("toolbox");
         }
     }
 }

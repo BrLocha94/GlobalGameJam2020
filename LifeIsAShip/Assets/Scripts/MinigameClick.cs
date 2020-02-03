@@ -31,6 +31,7 @@ public class MinigameClick : Minigame
         {
             currentClicks++;
             UpdateUI();
+            SoundController.instance().PlayClipSfx("mouse-click");
             if (maxClicks <= currentClicks)
                 OnFinishedGame(true);
         }

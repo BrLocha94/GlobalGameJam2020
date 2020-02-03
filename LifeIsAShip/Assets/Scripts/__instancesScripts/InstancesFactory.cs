@@ -7,5 +7,6 @@ public class InstancesFactory : MonoBehaviour
     void Awake ()
     {
         SceneController.instance();
+        SoundController.instance();
 	}
 }
