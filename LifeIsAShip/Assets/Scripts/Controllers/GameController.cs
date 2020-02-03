@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour
     {
         gameClear = true;
         stageTime = 0f;
+        SceneController.instance().LoadCutscene(0);
     }
 
     public void GetToolbox()
